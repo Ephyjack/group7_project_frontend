@@ -7,6 +7,7 @@ attendeeconnect/
 │
 ├── organizer-app/                     // Organizer platform
 │   ├── auth/
+|   ├──intro.html
 │   │   ├── login.html
 │   │   └── signup.html
 │   │
@@ -44,6 +45,8 @@ attendeeconnect/
 │   └── organizer.js                  // Central Organizer JS
 │
 ├── attendee-app/                      // Attendee mobile-first web app
+|   ├──manifest.json
+|   ├──service-worker.js
 │   ├── auth/
 │   │   ├── login.html
 │   │   └── signup.html
@@ -168,6 +171,7 @@ EXPANDED ATTENDEE SECION
 attendee-app/
 │
 ├── auth/
+|   ├──intro.html
 │   ├── login.html                  // Mobile-first login
 │   ├── signup.html                 // Mobile-first signup
 │   └── register.html               // Event registration by special Event ID
