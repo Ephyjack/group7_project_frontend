@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro</title>
+  <link rel="stylesheet" href="/attendeeconnect/attendee-app/assets/css/intro.css" />
+</head>
+<body>
+
+  <!-- SPLASH (PURPLE) -->
+  <section class="screen splash active">
+    <div class="splash-content">
+      <img src="/attendeeconnect/attendee-app/assets/images/logo.png" alt="Logo">
+      <h2>Attendee Connect</h2>
+    </div>
+  </section>
+
+  <!-- WHITE TRANSITION SCREEN -->
+  <section class="screen logo-white">
+    <img src="/attendeeconnect/attendee-app/assets/images/logo.png" alt="Logo">
+    <h2>Attendee Connect</h2>
+  </section>
+
+  <!-- INTRO SCREEN 1 -->
+  <section class="screen intro">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="prevScreen()">←</button>
+      <button class="skip-btn" onclick="goToAuth()">Skip</button>
+    </div>
+
+    <div class="image">
+      <img src="/attendeeconnect/attendee-app/assets/images/img1.png" alt="Intro image">
+    </div>
+
+    <div class="text">
+      <p> Networking shouldn’t be hard.<br>
+          At large events, it’s easy to miss the people who matter most..</p>
+    </div>
+
+    <button class="primary-btn" onclick="nextScreen()">Next</button>
+  </section>
+
+    <!-- INTRO SCREEN 2 -->
+  <section class="screen intro">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="prevScreen()">←</button>
+      <button class="skip-btn" onclick="goToAuth()">Skip</button>
+    </div>
+
+    <div class="image">
+      <img src="/attendeeconnect/attendee-app/assets/images/img2.png" alt="Intro image">
+    </div>
+
+    <div class="text">
+      <p> Meet the right people.<br>
+          At large events, it’s easy to miss the people who matter most.</p>
+    </div>
+
+    <button class="primary-btn" onclick="nextScreen()">Next</button>
+  </section>
+
+    <!-- INTRO SCREEN 3 -->
+  <section class="screen intro">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="prevScreen()">←</button>
+      <button class="skip-btn" onclick="goToAuth()">Skip</button>
+    </div>
+
+    <div class="image">
+      <img src="/attendeeconnect/attendee-app/assets/images/img3.png" alt="Intro image">
+    </div>
+
+    <div class="text">
+      <p> Engage beyond sessions.<br>
+          Join live polls, ask questions, and interact.</p>
+    </div>
+
+    <button class="primary-btn" onclick="nextScreen()">Next</button>
+  </section>
+
+
+  <!-- GET STARTED -->
+  <section class="screen logo-white">
+    <!-- <div class="top-bar">
+      <button class="icon-btn" onclick="prevScreen()">←</button>
+      <button class="skip-btn" onclick="goToAuth()">Skip</button>
+    </div> -->
+
+
+      <img src="/attendeeconnect/attendee-app/assets/images/img4.png" alt="Intro image">
+
+    <div class="text">
+      <p>Build meaningful relationships without pressure or noise.</p>
+    </div>
+
+    <button class="primary-btn" onclick="goToAuth()">Get Started</button>
+  </section>
+
+  <script src="/attendeeconnect/attendee-app/assets/js/intro.js"></script>
+</body>
+</html>
