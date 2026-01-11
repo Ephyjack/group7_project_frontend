@@ -24,5 +24,5 @@ function prevScreen() {
 }
 
 function goToAuth() {
-  window.location.href = "auth.html";
+  window.location.href = "/attendeeconnect/attendee-app/auth/signup&login.html";
 }

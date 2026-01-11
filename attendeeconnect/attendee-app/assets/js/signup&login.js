@@ -21,3 +21,9 @@ function togglePassword() {
   const input = document.getElementById("password");
   input.type = input.type === "password" ? "text" : "password";
 }
+
+document.getElementById("submitBtn").addEventListener("click", e => {
+  e.preventDefault();
+  window.location.href = "/attendeeconnect/attendee-app/auth/profilesetup.html";
+});
+
