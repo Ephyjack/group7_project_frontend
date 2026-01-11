@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Setup | Attendee Connect</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+
+  <link rel="stylesheet" href="/attendeeconnect/attendee-app/assets/css/profilesetup.css" />
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- HEADER -->
+  <header class="top-bar">
+    <span class="app-title">Attendee Connect</span>
+    <button class="skip-btn">Skip</button>
+  </header>
+
+  <!-- STEP 1: PROFILE INFO -->
+  <section class="step active">
+    <h1>Set Up Your Profile</h1>
+    <p class="subtitle">Tell us about yourself</p>
+
+    <div class="avatar-wrapper">
+      <div class="avatar">
+        <i class="ri-user-line"></i>
+      </div>
+      <button class="avatar-edit">
+        <i class="ri-pencil-line"></i>
+      </button>
+    </div>
+
+    <div class="form">
+      <input type="text" placeholder="Full Name" />
+      <input type="text" placeholder="Job Title / Role" />
+
+      <div class="two-col">
+        <input type="text" placeholder="Phone No" />
+        <input type="text" placeholder="Country Code" />
+      </div>
+
+      <input type="text" placeholder="Company (Optional)" />
+      <input type="text" placeholder="Location" />
+    </div>
+
+    <div class="nav">
+      <button class="btn primary next">Next</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: INTERESTS -->
+  <section class="step">
+    <h1>What are you here for?</h1>
+    <p class="subtitle">Help us find your perfect matches</p>
+
+    <h3>Your Interests</h3>
+    <div class="chip-group selectable">
+      <button class="chip">Software Engineering</button>
+      <button class="chip">AI & Machine Learning</button>
+      <button class="chip">UI/UX</button>
+      <button class="chip">Product Management</button>
+      <button class="chip">Cybersecurity</button>
+      <button class="chip">Data Science</button>
+      <button class="chip">Others</button>
+    </div>
+
+    <h3>Event Goals</h3>
+    <div class="card-group selectable">
+      <div class="goal-card">
+        <i class="ri-team-line"></i>
+        <span>Find Collaborators</span>
+      </div>
+      <div class="goal-card">
+        <i class="ri-lightbulb-line"></i>
+        <span>Learn New Skills</span>
+      </div>
+      <div class="goal-card">
+        <i class="ri-briefcase-line"></i>
+        <span>Meet Recruiters</span>
+      </div>
+      <div class="goal-card">
+        <i class="ri-rocket-line"></i>
+        <span>Explore Startups</span>
+      </div>
+    </div>
+
+    <div class="nav dual">
+      <button class="btn ghost prev">Prev</button>
+      <button class="btn primary next">Next</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: NETWORKING -->
+  <section class="step">
+    <h1>Networking Preference</h1>
+    <p class="subtitle">Control how you want to connect</p>
+
+    <h3>Preferred Time Slot</h3>
+    <div class="list selectable single">
+      <div class="list-item">
+        <i class="ri-sun-line"></i>
+        <span>Morning (8AM – 12PM)</span>
+      </div>
+      <div class="list-item active">
+        <i class="ri-time-line"></i>
+        <span>Afternoon (12PM – 5PM)</span>
+      </div>
+      <div class="list-item">
+        <i class="ri-moon-line"></i>
+        <span>Evening (5PM – 8PM)</span>
+      </div>
+    </div>
+
+    <h3>Connection Requests</h3>
+    <div class="list selectable single">
+      <div class="list-item">Anyone can message me</div>
+      <div class="list-item active">Only matched attendees</div>
+      <div class="list-item">Invite-only</div>
+    </div>
+
+    <div class="nav dual">
+      <button class="btn ghost prev">Prev</button>
+      <button class="btn primary next">Next</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: PRIVACY -->
+<section class="step">
+  <div class="center-icon">
+    <i class="ri-shield-check-line"></i>
+  </div>
+
+  <h1>Your Privacy Matters</h1>
+  <p class="subtitle">We respect your data and give you full control</p>
+
+  <div class="terms-row">
+    <input type="checkbox" checked />
+    <span>
+      I agree to the <a href="#">Terms of Service</a> and
+      <a href="#">Privacy Policy</a>
+    </span>
+  </div>
+
+  <div class="privacy-options selectable single">
+    <div class="privacy-card">
+      <i class="ri-eye-line"></i>
+      <div>
+        <strong>Public Profile</strong>
+        <p>Name, role and company visible</p>
+      </div>
+    </div>
+
+    <div class="privacy-card active">
+      <i class="ri-eye-off-line"></i>
+      <div>
+        <strong>Anonymous Mode</strong>
+        <p>Profile hidden. Interests only visible</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="btn primary next">Continue</button>
+  </div>
+</section>
+
+<section class="step">
+  <h1>Allow Permissions</h1>
+  <p class="subtitle">
+    For the best experience we recommend allowing these
+  </p>
+
+  <div class="permission-card">
+    <i class="ri-notification-3-line"></i>
+    <div class="permission-info">
+      <strong>Notifications</strong>
+      <p>Session reminders and meeting updates</p>
+    </div>
+    <div class="permission-actions">
+      <button class="btn small primary">Allow</button>
+      <button class="btn small ghost">Not Now</button>
+    </div>
+  </div>
+
+  <div class="permission-card">
+    <i class="ri-calendar-line"></i>
+    <div class="permission-info">
+      <strong>Calendar Access</strong>
+      <p>Schedule meetings easily</p>
+    </div>
+    <div class="permission-actions">
+      <button class="btn small primary">Allow</button>
+      <button class="btn small ghost">Not Now</button>
+    </div>
+  </div>
+
+  <div class="permission-card">
+    <i class="ri-camera-line"></i>
+    <div class="permission-info">
+      <strong>Camera</strong>
+      <p>Scan QR codes and upload photo</p>
+    </div>
+    <div class="permission-actions">
+      <button class="btn small primary">Allow</button>
+      <button class="btn small ghost">Not Now</button>
+    </div>
+  </div>
+
+  <button class="btn primary full next">Finish Setup</button>
+</section>
+
+
+<section class="step success">
+  <div class="success-icon-wrapper">
+    <i class="ri-check-double-line"></i>
+  </div>
+
+  <h1>You are all set!</h1>
+
+  <div class="completion-grid">
+    <div class="completion-box">
+      <i class="ri-check-line"></i>
+      <span>Profile</span>
+    </div>
+    <div class="completion-box">
+      <i class="ri-check-line"></i>
+      <span>Interest</span>
+    </div>
+    <div class="completion-box">
+      <i class="ri-check-line"></i>
+      <span>Ready</span>
+    </div>
+  </div>
+
+  <button class="btn primary full">Go to Home</button>
+</section>
+
+</div>
+
+<script src="/attendeeconnect/attendee-app/assets/js/profilesetup.js"></script>
+</body>
+</html>
