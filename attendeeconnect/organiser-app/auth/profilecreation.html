@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizer Profile Setup | AttendeeConnect</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+
+  <style>
+    :root {
+      --primary: #0d47ff;
+      --text-dark: #111;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 980px;
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 40px 48px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.06);
+    }
+
+    /* Header */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .brand-logo img{
+        width: 30px;
+    }
+
+    .brand span {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    /* Steps */
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    /* Profile Form Layout */
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    /* Profile Photo */
+    .profile-photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 24px 0;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.avatar-edit {
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+  background: #0b5ed7;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  padding: 6px;
+}
+
+    /* .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: var(--text-muted);
+      position: relative;
+    } */
+
+    .edit-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .photo-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* Footer */
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .step-indicator {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Final Step */
+    .final {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .final-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #eef2ff;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: var(--primary);
+    }
+
+    .final h2 {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .final p {
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .app-shell {
+        padding: 32px 24px;
+      }
+
+      .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        justify-items: center;
+      }
+
+      .form-footer {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 24px 0;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.avatar-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  background: #0b5ed7;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  padding: 6px;
+}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <div class="brand">
+      <div class="brand-logo"><img src="/attendeeconnect/assets/images/logo.png" alt=""></div>
+      <span>Attendee Connect</span>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="step active" id="step-1">
+      <h1>Set up your profile</h1>
+      <p class="subtitle">Tell us about yourself</p>
+
+      <div class="profile-layout">
+
+    <div class="avatar-wrapper">
+      <div class="avatar">
+        <i class="ri-user-line"></i>
+      </div>
+      <button class="avatar-edit">
+        <i class="ri-pencil-line"></i>
+      </button>
+    </div>
+
+        <div>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>Company (Optional)</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>Job Title / Role</label>
+            <input type="text" />
+          </div>
+
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" />
+          </div>
+
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <div class="step-indicator">Step 1 / 2</div>
+        <button class="btn btn-primary" onclick="goToFinal()">NEXT</button>
+      </div>
+    </section>
+
+    <!-- FINAL STEP -->
+    <section class="step" id="step-2">
+      <div class="final">
+        <div class="final-icon">✔</div>
+        <h2>You are all set!</h2>
+        <p>Your profile is ready. Take control of your event experience in one click</p>
+        <button class="btn btn-primary">GO TO HOME</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function goToFinal() {
+      document.getElementById('step-1').classList.remove('active');
+      document.getElementById('step-2').classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
