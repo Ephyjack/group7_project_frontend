@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AttendeeConnect</title>
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/feather-icons" rel="stylesheet">
+  <link rel="stylesheet" href="/attendeeconnect/attendee-app/assets/css/dashboard.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>AttendeeConnect</h1>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="screen">
+
+      <!-- NOT REGISTERED -->
+      <section class="screen active" id="no-event">
+        <h2>No Event Yet</h2>
+        <p>Register for an event to unlock features</p>
+
+        <button class="primary-btn" onclick="registerEvent()">
+          Register for Event
+        </button>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section class="screen" id="dashboard">
+        <h2>Your Event</h2>
+
+        <div class="event-card" onclick="openEvent()">
+          <img src="https://picsum.photos/400/200" alt="Event cover" />
+          <div class="event-info">
+            <h3>Tech Future Conference 2026</h3>
+            <span>March 12 – March 14</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENT HOME -->
+      <section class="screen" id="home">
+        <h2>Event Home</h2>
+        <p>Flyers, videos & announcements appear here.</p>
+      </section>
+
+      <section class="screen" id="event">
+        <h2>Event Details</h2>
+        <p>Speakers, sponsors & venue info.</p>
+      </section>
+
+      <section class="screen" id="schedule">
+        <h2>Schedule</h2>
+        <p>Sessions & meetings timeline.</p>
+      </section>
+
+      <section class="screen" id="chat">
+        <h2>Chat</h2>
+        <p>Networking & messages.</p>
+      </section>
+
+      <section class="screen" id="profile">
+        <h2>Profile</h2>
+        <p>User settings & account.</p>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav" id="bottomNav">
+      <button data-target="home"><i data-feather="home"></i></button>
+      <button data-target="event"><i data-feather="film"></i></button>
+      <button data-target="schedule"><i data-feather="calendar"></i></button>
+      <button data-target="chat"><i data-feather="message-circle"></i></button>
+      <button data-target="profile"><i data-feather="user"></i></button>
+    </nav>
+
+  </div>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="/attendeeconnect/attendee-app/assets/js/dashboard.js"></script>
+</body>
+</html>

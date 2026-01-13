@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth</title>
+  <link rel="stylesheet" href="/attendeeconnect/attendee-app/assets/css/signup&login.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+</head>
+<body>
+
+  <div class="auth-container">
+
+    <img src="/attendeeconnect/attendee-app/assets/images/logo.png" class="logo" alt="Logo" />
+
+    <h2>Welcome to AttendeeConnect</h2>
+    <p class="subtitle">Create an account or login as Organiser</p>
+
+    <!-- TOGGLE -->
+    <div class="toggle">
+      <div class="toggle-bg"></div>
+      <button class="toggle-btn active" onclick="setMode('signup')">Sign Up</button>
+      <button class="toggle-btn" onclick="setMode('login')">Log In</button>
+    </div>
+
+    <!-- FORM -->
+    <form>
+
+      <div class="input-group">
+        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+        <input type="email" placeholder="Email" />
+      </div>
+
+      <div class="input-group">
+        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+        <input type="password" id="password" placeholder="Password" />
+        <span class="icon eye" onclick="togglePassword()"><i class="fa-solid fa-eye"></i></span>
+      </div>
+
+      <button class="primary-btn" id="submitBtn">
+        Create Account
+      </button>
+
+    </form>
+
+    <p class="divider">Or continue with</p>
+
+    <button class="social-btn">
+      <img src="https://cdn.simpleicons.org/google" width="20" height="20" alt="Google"> Google
+    </button>
+
+    <button class="social-btn">
+      <img src="https://cdn.simpleicons.org/linkedin" width="20" height="20" alt="LinkedIn"> LinkedIn
+    </button>
+
+    <p class="terms">
+      By continuing you agree to the
+      <a href="#">Terms of service</a> &
+      <a href="#">Privacy Policy</a>
+    </p>
+
+  </div>
+
+  <script src="/attendeeconnect/attendee-app/assets/js/signup&login.js"></script>
+</body>
+</html>
