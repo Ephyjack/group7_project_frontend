@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New Event | Attendee Connect</title>
+  <link rel="stylesheet" href="/attendeeconnect/organiser-app/assets/css/createevent.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="event-header">
+    <div class="header-left">
+      <button class="back-btn">←</button>
+      <div>
+        <h2>Create New Event</h2>
+        <span class="event-status">Draft Event</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn secondary">Save Draft</button>
+      <button class="btn primary">Publish Event</button>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <nav class="event-tabs">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="details">Event Details</button>
+    <button class="tab-btn" data-tab="registration">Event Registration</button>
+  </nav>
+
+  <!-- CONTENT -->
+<main class="event-content">
+
+  <!-- OVERVIEW -->
+  <section class="tab-section active" id="overview">
+    <section class="card">
+      <h3>Invited Organizer</h3>
+      <button class="link-btn">+ Invite Co-Organizer</button>
+    </section>
+
+    <section class="card">
+      <h3>Host a Meeting</h3>
+      <p>Schedule planning meetings with your teams</p>
+      <input type="text" placeholder="Paste Zoom / Meet link" />
+    </section>
+
+    <section class="card">
+      <h3>AI Planning Assistant</h3>
+      <p>Get event ideas and suggestions from our AI assistant</p>
+      <button class="btn primary small">Chat with Assistant</button>
+    </section>
+
+    <section class="card">
+      <h3>Get Recommendations</h3>
+      <div class="recommendations">
+        <div class="recommend-box">
+          <strong>Articles</strong>
+          <span>Best practices for events</span>
+        </div>
+        <div class="recommend-box">
+          <strong>Videos</strong>
+          <span>Learn from industry events</span>
+        </div>
+        <div class="recommend-box">
+          <strong>Conference News</strong>
+          <span>Recent successful events</span>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- EVENT DETAILS -->
+  <section class="tab-section" id="details">
+    <section class="card">
+      <h3>Basic Event Information</h3>
+
+      <div class="form-group">
+        <label>Event Name</label>
+        <input type="text" placeholder="e.g. Tech Summit 2026" />
+      </div>
+
+      <div class="form-group">
+        <label>Event Description</label>
+        <textarea placeholder="Describe your event..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Event Type</label>
+          <select>
+            <option>Virtual</option>
+            <option>Physical</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" />
+        </div>
+
+        <div class="form-group">
+          <label>End Date</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Time Zone</label>
+        <input type="text" placeholder="Select timezone" />
+      </div>
+
+      <div class="form-group">
+        <label>Event Banner</label>
+        <button class="btn secondary small">Upload Banner</button>
+        <small>Recommended 1920 × 1080px</small>
+      </div>
+
+      <div class="form-group">
+        <label>Promotional Video (Optional)</label>
+        <input type="text" placeholder="YouTube or video link" />
+      </div>
+    </section>
+
+<!-- SESSIONS -->
+<section class="card">
+  <div class="sessions-header">
+    <h3>Sessions</h3>
+    <button class="btn primary small" id="openSessionModal">
+      Create Session
+    </button>
+  </div>
+
+  <div id="sessionsList" class="sessions-list">
+    <div class="empty-state" id="emptySessions">
+      <div class="calendar-icon">📅</div>
+      <p>No sessions created yet</p>
+      <span>Create your first session to get started</span>
+    </div>
+  </div>
+</section>
+
+<!-- CREATE SESSION MODAL -->
+<div class="modal-overlay" id="sessionModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Create Session</h3>
+      <button class="close-modal" id="closeSessionModal">×</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Session Title</label>
+        <input type="text" id="sessionTitle" placeholder="e.g. Opening Keynote" />
+      </div>
+
+      <div class="form-group">
+        <label>Session Description</label>
+        <textarea id="sessionDescription" placeholder="What is this session about?"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Start Time</label>
+          <input type="time" id="sessionStart" />
+        </div>
+
+        <div class="form-group">
+          <label>End Time</label>
+          <input type="time" id="sessionEnd" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Speaker Name</label>
+        <input type="text" id="speakerName" placeholder="e.g. John Doe" />
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn secondary" id="cancelSession">Cancel</button>
+      <button class="btn primary" id="saveSession">Save Session</button>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- EVENT REGISTRATION -->
+  <section class="tab-section" id="registration">
+    <div class="event-registration">
+
+      <section class="card">
+        <h3>Registration Type</h3>
+
+        <div class="radio-row active">
+          <input type="radio" checked />
+          <div class="radio-content">
+            <div>
+              <strong>Open Registration</strong>
+              <p>Anyone with the link can register for your event</p>
+            </div>
+
+            <div class="link-box">
+              <label>Event Registration Link</label>
+              <input type="text" value="https://attendeeconnect.app/event/abc123" readonly />
+            </div>
+          </div>
+        </div>
+
+        <div class="radio-row disabled">
+          <input type="radio" disabled />
+          <div>
+            <strong>Code Registration</strong>
+            <p>Require attendees to enter a registration code</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Organizer Settings</h3>
+
+        <div class="form-group">
+          <label>Attendee Limit</label>
+          <label><input type="radio" checked /> Unlimited attendees</label>
+          <label><input type="radio" /> Limited number of attendees</label>
+        </div>
+
+        <div class="form-group">
+          <label>Registration Deadline</label>
+          <input type="date" />
+          <small>Attendees won’t be able to register after this date</small>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+</main>
+
+<script>
+  let editingIndex = null;
+
+  function editSession(index) {
+  const session = sessions[index];
+  editingIndex = index;
+
+  document.getElementById("sessionTitle").value = session.title;
+  document.getElementById("sessionDescription").value = session.description;
+  document.getElementById("sessionStart").value = session.start;
+  document.getElementById("sessionEnd").value = session.end;
+  document.getElementById("speakerName").value = session.speaker;
+
+  document.querySelector(".modal-header h3").textContent = "Edit Session";
+  document.getElementById("saveSession").textContent = "Update Session";
+
+  openModal();
+}
+
+
+function deleteSession(index) {
+  if (!confirm("Delete this session?")) return;
+  sessions.splice(index, 1);
+  renderSessions();
+}
+
+
+
+  const modal = document.getElementById("sessionModal");
+  const openBtn = document.getElementById("openSessionModal");
+  const closeBtn = document.getElementById("closeSessionModal");
+  const cancelBtn = document.getElementById("cancelSession");
+  const saveBtn = document.getElementById("saveSession");
+
+  const sessionsList = document.getElementById("sessionsList");
+  const emptyState = document.getElementById("emptySessions");
+
+  let sessions = [];
+
+  function openModal() {
+    modal.classList.add("active");
+  }
+
+function closeModal() {
+  modal.classList.remove("active");
+  clearForm();
+  editingIndex = null;
+  document.querySelector(".modal-header h3").textContent = "Create Session";
+  saveBtn.textContent = "Save Session";
+}
+
+
+  function clearForm() {
+    document.getElementById("sessionTitle").value = "";
+    document.getElementById("sessionDescription").value = "";
+    document.getElementById("sessionStart").value = "";
+    document.getElementById("sessionEnd").value = "";
+    document.getElementById("speakerName").value = "";
+  }
+
+function renderSessions() {
+  sessionsList.innerHTML = "";
+  emptyState.style.display = sessions.length ? "none" : "block";
+
+  sessions.forEach((session, index) => {
+    const card = document.createElement("div");
+    card.className = "session-card";
+
+    card.innerHTML = `
+      <div class="session-top">
+        <h4>${session.title}</h4>
+        <div class="session-actions">
+          <button class="icon-btn" onclick="editSession(${index})">✏️</button>
+          <button class="icon-btn danger" onclick="deleteSession(${index})">🗑️</button>
+        </div>
+      </div>
+
+      <p>${session.description || ""}</p>
+
+      <div class="session-meta">
+        ${session.start} – ${session.end}
+        ${session.speaker ? ` · Speaker: ${session.speaker}` : ""}
+      </div>
+    `;
+
+    sessionsList.appendChild(card);
+  });
+}
+
+
+saveBtn.addEventListener("click", () => {
+  const title = document.getElementById("sessionTitle").value.trim();
+  const description = document.getElementById("sessionDescription").value.trim();
+  const start = document.getElementById("sessionStart").value;
+  const end = document.getElementById("sessionEnd").value;
+  const speaker = document.getElementById("speakerName").value.trim();
+
+  if (!title || !start || !end) {
+    alert("Please fill required fields");
+    return;
+  }
+
+  const data = { title, description, start, end, speaker };
+
+  if (editingIndex !== null) {
+    sessions[editingIndex] = data;
+  } else {
+    sessions.push(data);
+  }
+
+  editingIndex = null;
+  document.querySelector(".modal-header h3").textContent = "Create Session";
+  saveBtn.textContent = "Save Session";
+
+  renderSessions();
+  closeModal();
+});
+
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  cancelBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closeModal();
+  });
+</script>
+
+
+  <script src="/attendeeconnect/organiser-app/assets/js/createevent.js"></script>
+</body>
+</html>

@@ -9,29 +9,63 @@
 </head>
 <body>
 
-  <div class="hero-container">
+  <div class="hero-slider">
 
     <!-- TOP BAR -->
     <header class="top-bar">
       <div class="brand">
-        <span class="logo"><img src="/attendeeconnect/assets/images/logo.png" alt=""></span>
+        <img src="/attendeeconnect/assets/images/logo.png" alt="logo" />
         <span class="brand-name">Attendee Connect</span>
       </div>
 
-      <button class="get-started-btn">Get started</button>
+      <button class="skip-btn">Skip</button>
     </header>
 
-    <!-- HERO CONTENT -->
-    <div class="hero-content">
-      <h1>
-        Welcome! Lets match you up<br />
-        with the right people.
-      </h1>
+    <!-- SLIDES -->
+    <div class="slides">
 
-      <p>
-        Discover attendees, schedule meetings, engage<br />
-        live and connect here.
-      </p>
+      <section class="slide active" style="background-image:url('/attendeeconnect/assets/images/landing-organiser.png')">
+        <div class="hero-content">
+          <h1>Welcome! lets match you up<br>with the right people.</h1>
+          <p>
+            Discover attendees, schedule meetings,<br>
+            engage live and connect here.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide" style="background-image:url('/attendeeconnect/assets/images/landing-organiser1.png')">
+        <div class="hero-content">
+          <h1>Welcome! lets match you up<br>with the right people.</h1>
+          <p>
+            Discover attendees, schedule meetings,<br>
+            engage live and connect here.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide" style="background-image:url('/attendeeconnect/assets/images/landing-organiser2.png')">
+        <div class="hero-content">
+          <h1>Welcome! lets match you up<br>with the right people.</h1>
+          <p>
+            Discover attendees, schedule meetings,<br>
+            engage live and connect here.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+      <button class="back-btn">Back</button>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <button class="next-btn">Next</button>
     </div>
 
   </div>
