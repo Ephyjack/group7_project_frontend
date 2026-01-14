@@ -80,7 +80,7 @@ function renderDraftCard() {
 function renderLiveCard() {
   return `
     <div class="event-card">
-      <img src="/attendeeconnect/organiser-app/assets/images/live.png">
+      <img src="/attendeeconnect/organiser-app/assets/images/liveevent.png">
       <div class="card-content">
         <span>Live Event</span>
         <button onclick="openLive()">Manage</button>
