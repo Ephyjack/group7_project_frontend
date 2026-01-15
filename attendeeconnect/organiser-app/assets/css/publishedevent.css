@@ -1,0 +1,285 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f9fafb;
+}
+
+/* HEADER */
+.top-bar {
+  background: white;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.brand img {
+  width: 28px;
+}
+
+.status-badge {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* CONTAINER */
+.container {
+  padding: 32px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+}
+
+/* ATTENDEES */
+.attendees-card {
+  background: white;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.attendees-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatars {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.avatars img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0 16px;
+}
+
+.tab {
+  border: none;
+  background: #f3f4f6;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tab.active {
+  background: white;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* PANELS */
+.panel {
+  display: none;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.panel.active {
+  display: block;
+}
+
+/* SESSIONS */
+.session-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 14px;
+}
+
+.session-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.tag {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 4px 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+/* ENGAGEMENT LOCK */
+.locked {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}
+
+.locked i {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* Q&A */
+.qa-item {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+}
+
+/* Q&A PANEL */
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qa-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.qa-item .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.qa-content {
+  flex: 1;
+}
+
+.qa-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.qa-header .time {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.qa-text {
+  margin: 8px 0 10px;
+  color: #111827;
+}
+
+.reply-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ORGANIZER REPLY */
+.qa-reply {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  position: relative;
+}
+
+.reply-badge {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #2563eb;
+  color: white;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.qa-reply p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .qa-item {
+    flex-direction: column;
+  }
+
+  .qa-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

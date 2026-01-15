@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Event Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/attendeeconnect/organiser-app/assets/css/liveevent.css" />
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="app-header">
+  <div class="left">
+    <button class="icon-btn">
+      <i class="ph ph-arrow-left"></i>
+    </button>
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="ph ph-calendar"></i>
+      </div>
+      <div>
+        <h1>Tech Summit 2026</h1>
+        <span>Event Dashboard</span>
+      </div>
+    </div>
+
+    <span class="live-badge">Live Now</span>
+  </div>
+
+  <div class="right">
+    <button class="end-btn">
+      <i class="ph ph-stop-circle"></i>
+      End Event
+    </button>
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="container">
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <p>Total Registered</p>
+      <h2>1,247</h2>
+      <span class="positive">+124 from last event</span>
+      <i class="ph ph-users"></i>
+    </div>
+
+    <div class="stat-card">
+      <p>Currently Active</p>
+      <h2>892</h2>
+      <span class="positive">71.5% attendance</span>
+      <i class="ph ph-user-circle"></i>
+    </div>
+
+    <div class="stat-card">
+      <p>New Joins (Live)</p>
+      <h2>34</h2>
+      <span>Last hour</span>
+      <i class="ph ph-user-plus"></i>
+    </div>
+
+    <div class="stat-card">
+      <p>Peak Engagement</p>
+      <h2>94%</h2>
+      <span class="positive">During keynote</span>
+      <i class="ph ph-trend-up"></i>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVE ATTENDEES ===== -->
+  <section class="card">
+    <div class="card-header">
+      <h3><i class="ph ph-users"></i> Active Attendees</h3>
+      <p>Click to expand profile</p>
+    </div>
+
+    <div class="avatar-row">
+      <img src="https://i.pravatar.cc/80?img=1">
+      <img src="https://i.pravatar.cc/80?img=2">
+      <img src="https://i.pravatar.cc/80?img=3">
+      <img src="https://i.pravatar.cc/80?img=4">
+      <img src="https://i.pravatar.cc/80?img=5">
+      <img src="https://i.pravatar.cc/80?img=6">
+      <img src="https://i.pravatar.cc/80?img=7">
+    </div>
+  </section>
+
+  <!-- ===== TABS ===== -->
+  <nav class="tabs">
+    <button class="tab active"><i class="ph ph-chart-bar"></i> Overview</button>
+    <button class="tab"><i class="ph ph-calendar"></i> Sessions</button>
+    <button class="tab"><i class="ph ph-pulse"></i> Engagement</button>
+    <button class="tab"><i class="ph ph-chat-circle-text"></i> Q&A</button>
+  </nav>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section class="overview-grid">
+
+    <!-- SESSIONS PANEL -->
+    <div class="card">
+      <h3>Event Sessions</h3>
+
+      <div class="session live">
+        <img src="https://i.pravatar.cc/60?img=12">
+        <div class="info">
+          <h4>Keynote: The Future of Cloud Computing</h4>
+          <p>Dr. James Wilson • CTO</p>
+          <span>10:00 AM • Main Hall • 245 watching</span>
+        </div>
+        <span class="status live">Live</span>
+      </div>
+
+      <div class="session">
+        <img src="https://i.pravatar.cc/60?img=22">
+        <div class="info">
+          <h4>Building Scalable Microservices</h4>
+          <p>Lisa Anderson • Software Architect</p>
+          <span>11:30 AM • Workshop Room A</span>
+        </div>
+        <span class="status upcoming">Upcoming</span>
+      </div>
+    </div>
+
+    <!-- ENGAGEMENT PANEL -->
+    <div class="card">
+      <h3>Attendee Engagement</h3>
+
+      <div class="chart-placeholder">
+        <i class="ph ph-chart-bar"></i>
+        <p>Live engagement chart</p>
+      </div>
+
+      <div class="engagement-stats">
+        <div>
+          <strong>1,234</strong>
+          <span>Chat Messages</span>
+        </div>
+        <div>
+          <strong>87</strong>
+          <span>Questions Asked</span>
+        </div>
+        <div>
+          <strong>2,456</strong>
+          <span>Reactions</span>
+        </div>
+      </div>
+    </div>
+
+     <!-- ===== SESSIONS ===== -->
+  <div class="tab-panel" id="sessions-panel">
+    <div class="card">
+      <h3><i class="ph ph-calendar"></i> Live & Upcoming Sessions</h3>
+
+      <div class="session live">
+        <img src="https://i.pravatar.cc/60?img=31">
+        <div class="info">
+          <h4>Keynote: The Future of Cloud Computing</h4>
+          <p>Dr. James Wilson • CTO</p>
+          <span>Live Now • 245 watching</span>
+        </div>
+        <span class="status live">Live</span>
+      </div>
+
+      <div class="session">
+        <img src="https://i.pravatar.cc/60?img=44">
+        <div class="info">
+          <h4>AI in Modern Software Architecture</h4>
+          <p>Sarah Kim • Lead Engineer</p>
+          <span>Starts 12:30 PM • Main Hall</span>
+        </div>
+        <span class="status upcoming">Upcoming</span>
+      </div>
+
+      <div class="session">
+        <img src="https://i.pravatar.cc/60?img=56">
+        <div class="info">
+          <h4>Scaling Products Globally</h4>
+          <p>Michael Ade • Product Director</p>
+          <span>Starts 2:00 PM • Workshop B</span>
+        </div>
+        <span class="status upcoming">Upcoming</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ENGAGEMENT ===== -->
+  <div class="tab-panel" id="engagement-panel">
+    <div class="card engagement-disabled">
+      <div class="engagement-message">
+        <i class="ph ph-pulse"></i>
+        <h3>Engagement Data Available During Live Event</h3>
+        <p>
+          Once your event goes live, you'll see real-time engagement metrics here.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+</main>
+
+<script src="/attendeeconnect/organiser-app/assets/js/liveevent.js"></script>
+</body>
+</html>

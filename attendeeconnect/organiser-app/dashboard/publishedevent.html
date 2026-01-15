@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/lucide@latest/dist/lu.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/attendeeconnect/organiser-app/assets/css/publishedevent.css" />
+</head>
+
+<body>
+
+<header class="top-bar">
+  <div class="left">
+    <button class="back-btn">
+      <i data-lucide="arrow-left"></i>
+    </button>
+
+    <div class="brand">
+      <img src="/attendeeconnect/assets/images/logo.png" alt="logo">
+      <span>Attendee Connect</span>
+    </div>
+  </div>
+
+  <span class="status-badge">Published</span>
+</header>
+
+<main class="container">
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat-card">
+      <h4>Total Registered</h4>
+      <h2>1,247</h2>
+    </div>
+
+    <div class="stat-card">
+      <h4>Confirmed</h4>
+      <h2>1,089</h2>
+    </div>
+  </section>
+
+  <!-- ATTENDEES -->
+  <section class="attendees-card">
+    <h3>
+      <i data-lucide="users"></i>
+      Registered Attendees
+    </h3>
+
+    <div class="avatars">
+      <img src="https://i.pravatar.cc/60?1">
+      <img src="https://i.pravatar.cc/60?2">
+      <img src="https://i.pravatar.cc/60?3">
+      <img src="https://i.pravatar.cc/60?4">
+      <img src="https://i.pravatar.cc/60?5">
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="overview">
+      <i data-lucide="layout-dashboard"></i> Overview
+    </button>
+
+    <button class="tab" data-tab="engagement">
+      <i data-lucide="bar-chart-3"></i> Engagement
+    </button>
+
+    <button class="tab" data-tab="qa">
+      <i data-lucide="message-square"></i> Q&A
+    </button>
+  </nav>
+
+  <!-- CONTENT -->
+  <section class="tab-content">
+
+    <!-- OVERVIEW -->
+    <div class="panel active" id="overview">
+
+      <h3>Upcoming Sessions</h3>
+
+      <div class="session-card">
+        <img src="https://i.pravatar.cc/60?11">
+        <div>
+          <strong>Keynote: The Future of Cloud</strong>
+          <p>Dr. James Wilson · CTO</p>
+        </div>
+        <span class="tag">Upcoming</span>
+      </div>
+
+      <div class="session-card">
+        <img src="https://i.pravatar.cc/60?12">
+        <div>
+          <strong>Building Scalable Microservices</strong>
+          <p>Lisa Anderson · Software Architect</p>
+        </div>
+        <span class="tag">Upcoming</span>
+      </div>
+
+    </div>
+
+    <!-- ENGAGEMENT -->
+    <div class="panel" id="engagement">
+      <div class="locked">
+        <i data-lucide="lock"></i>
+        <h4>Engagement Data Available During Live Event</h4>
+        <p>
+          Once your event goes live, you'll see real-time engagement metrics here.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q&A -->
+<!-- Q&A -->
+<div class="panel" id="qa">
+
+  <h3 class="panel-title">
+    <i data-lucide="message-circle"></i>
+    Questions & Answers
+  </h3>
+
+  <div class="qa-list">
+
+    <!-- QUESTION -->
+    <div class="qa-item">
+      <img src="https://i.pravatar.cc/60?21" class="avatar">
+
+      <div class="qa-content">
+        <div class="qa-header">
+          <strong>Sarah Johnson</strong>
+          <span class="time">10:24 AM</span>
+        </div>
+
+        <p class="qa-text">
+          Will session recordings be available after the event?
+        </p>
+
+        <button class="reply-btn">
+          <i data-lucide="corner-up-left"></i> Reply
+        </button>
+
+        <!-- ORGANIZER REPLY -->
+        <div class="qa-reply">
+          <div class="reply-badge">Organizer</div>
+          <p>
+            Yes, all session recordings will be emailed to registered attendees.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION (NO REPLY YET) -->
+    <div class="qa-item">
+      <img src="https://i.pravatar.cc/60?22" class="avatar">
+
+      <div class="qa-content">
+        <div class="qa-header">
+          <strong>Michael Lee</strong>
+          <span class="time">11:02 AM</span>
+        </div>
+
+        <p class="qa-text">
+          Will certificates of participation be issued?
+        </p>
+
+        <button class="reply-btn">
+          <i data-lucide="corner-up-left"></i> Reply
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+</main>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="/attendeeconnect/organiser-app/assets/js/publishedevent.js"></script>
+</body>
+</html>
