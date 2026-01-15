@@ -33,7 +33,7 @@ document.addEventListener('click', e => {
 
 /* FINAL REDIRECT */
 document.getElementById('goHome')?.addEventListener('click', () => {
-window.location.href = '/attendeeconnect/attendee-app/home.html';
+window.location.href = '/attendeeconnect/attendee-app/home/dashboard.html';
 });
 
 showStep();
