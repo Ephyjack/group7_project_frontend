@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Session</title>
+
+  <style>
+    :root {
+      --primary: #0a56e8;
+      --bg: #f2f2f2;
+      --card: #ffffff;
+      --muted: #666;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #6a6ff5, #0a56e8);
+      padding: 20px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      color: #000;
+    }
+
+    .back {
+      font-size: 22px;
+      cursor: pointer;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .speaker {
+      font-size: 14px;
+    }
+
+    /* TABS */
+    .tabs {
+      background: #fff;
+      display: flex;
+      margin: 12px auto 20px;
+      width: calc(100% - 30px);
+      max-width: 720px;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 14px 0;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* CONTENT */
+    .container {
+      padding: 0 15px 30px;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Q&A */
+    .ask input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: #e5e5e5;
+      outline: none;
+    }
+
+    .question {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .likes {
+      cursor: pointer;
+      background: #eee;
+      padding: 6px 10px;
+      border-radius: 20px;
+    }
+
+    /* POLLS */
+    .option {
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .progress {
+      background: #e5e5e5;
+      border-radius: 10px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: var(--primary);
+      height: 100%;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .option.selected .progress-fill {
+      background: #28a745;
+    }
+
+    .votes {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 900px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="back">←</div>
+
+    <div class="live">
+      <div class="dot"></div>
+      LIVE
+    </div>
+
+    <div class="title">The Future of AI in Product Design</div>
+    <div class="speaker">Speaker: Name</div>
+  </header>
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <div class="tab" data-tab="polls">Polls</div>
+    <div class="tab active" data-tab="qa">Q&amp;A</div>
+    <div class="tab" data-tab="reactions">Reactions</div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container">
+
+    <!-- POLLS -->
+    <section id="polls" class="hidden">
+      <div class="card">
+        <div class="question">What’s your take on AI in design?</div>
+
+        <div class="option">
+          <div class="option-header">
+            <span>AI will transform product design completely</span>
+            <span>31%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-fill" style="width:31%"></div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="option-header">
+            <span>AI is a useful tool but won’t replace designers</span>
+            <span>53%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-fill" style="width:53%"></div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="option-header">
+            <span>Too early to say</span>
+            <span>16%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-fill" style="width:16%"></div>
+          </div>
+        </div>
+
+        <div class="votes">187 votes</div>
+      </div>
+    </section>
+
+    <!-- Q&A -->
+    <section id="qa">
+      <div class="card ask">
+        <input type="text" placeholder="Ask a question..." />
+      </div>
+
+      <div class="card">
+        <div class="question">How do you handle design systems at scale?</div>
+        <div class="meta">
+          <span>by Name</span>
+          <div class="likes">👍 17</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="question">What tools do you recommend for AI powered design?</div>
+        <div class="meta">
+          <span>by Name</span>
+          <div class="likes">👍 45</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="question">How do you balance automation with human creativity?</div>
+        <div class="meta">
+          <span>by Name</span>
+          <div class="likes">👍 65</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REACTIONS -->
+    <section id="reactions" class="hidden">
+      <div class="card">👏 😍 🔥 👍 reactions coming soon</div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Tabs
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll("main section");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        sections.forEach(section => section.classList.add("hidden"));
+        document.getElementById(tab.dataset.tab).classList.remove("hidden");
+      });
+    });
+
+    // Poll interaction ONLY
+    const pollOptions = document.querySelectorAll("#polls .option");
+
+    pollOptions.forEach(option => {
+      option.addEventListener("click", () => {
+        pollOptions.forEach(o => o.classList.remove("selected"));
+        option.classList.add("selected");
+      });
+    });
+  </script>
+
+</body>
+</html>
