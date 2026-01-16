@@ -113,7 +113,7 @@ function openDrafts() {
 }
 
 function openLive() {
-  alert("Live dashboard coming next");
+  window.location.href = "/attendeeconnect/organiser-app/dashboard/liveevent.html";
 }
 
 /* ===============================

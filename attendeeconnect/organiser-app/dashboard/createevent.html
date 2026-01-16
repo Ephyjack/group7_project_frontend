@@ -79,7 +79,7 @@
 
       <div class="form-group">
         <label>Event Name</label>
-        <input type="text" placeholder="e.g. Tech Summit 2026" />
+        <input type="text" id="eventTitle" placeholder="e.g. Tech Summit 2026" />
       </div>
 
       <div class="form-group">
@@ -99,12 +99,12 @@
 
         <div class="form-group">
           <label>Start Date</label>
-          <input type="date" />
+          <input type="date" id="startDate" />
         </div>
 
         <div class="form-group">
           <label>End Date</label>
-          <input type="date" />
+          <input type="date" id="endDate" />
         </div>
       </div>
 
@@ -241,47 +241,27 @@
 </main>
 
 <script>
-  let editingIndex = null;
+/* ===============================
+   SESSION MANAGEMENT (EVENT-AWARE)
+================================ */
 
-  function editSession(index) {
-  const session = sessions[index];
-  editingIndex = index;
+let editingIndex = null;
+let sessions = [];
 
-  document.getElementById("sessionTitle").value = session.title;
-  document.getElementById("sessionDescription").value = session.description;
-  document.getElementById("sessionStart").value = session.start;
-  document.getElementById("sessionEnd").value = session.end;
-  document.getElementById("speakerName").value = session.speaker;
+// DOM
+const modal = document.getElementById("sessionModal");
+const openBtn = document.getElementById("openSessionModal");
+const closeBtn = document.getElementById("closeSessionModal");
+const cancelBtn = document.getElementById("cancelSession");
+const saveBtn = document.getElementById("saveSession");
 
-  document.querySelector(".modal-header h3").textContent = "Edit Session";
-  document.getElementById("saveSession").textContent = "Update Session";
+const sessionsList = document.getElementById("sessionsList");
+const emptyState = document.getElementById("emptySessions");
 
-  openModal();
+// Open / Close Modal
+function openModal() {
+  modal.classList.add("active");
 }
-
-
-function deleteSession(index) {
-  if (!confirm("Delete this session?")) return;
-  sessions.splice(index, 1);
-  renderSessions();
-}
-
-
-
-  const modal = document.getElementById("sessionModal");
-  const openBtn = document.getElementById("openSessionModal");
-  const closeBtn = document.getElementById("closeSessionModal");
-  const cancelBtn = document.getElementById("cancelSession");
-  const saveBtn = document.getElementById("saveSession");
-
-  const sessionsList = document.getElementById("sessionsList");
-  const emptyState = document.getElementById("emptySessions");
-
-  let sessions = [];
-
-  function openModal() {
-    modal.classList.add("active");
-  }
 
 function closeModal() {
   modal.classList.remove("active");
@@ -291,15 +271,15 @@ function closeModal() {
   saveBtn.textContent = "Save Session";
 }
 
+function clearForm() {
+  document.getElementById("sessionTitle").value = "";
+  document.getElementById("sessionDescription").value = "";
+  document.getElementById("sessionStart").value = "";
+  document.getElementById("sessionEnd").value = "";
+  document.getElementById("speakerName").value = "";
+}
 
-  function clearForm() {
-    document.getElementById("sessionTitle").value = "";
-    document.getElementById("sessionDescription").value = "";
-    document.getElementById("sessionStart").value = "";
-    document.getElementById("sessionEnd").value = "";
-    document.getElementById("speakerName").value = "";
-  }
-
+// Render Sessions
 function renderSessions() {
   sessionsList.innerHTML = "";
   emptyState.style.display = sessions.length ? "none" : "block";
@@ -316,9 +296,7 @@ function renderSessions() {
           <button class="icon-btn danger" onclick="deleteSession(${index})">🗑️</button>
         </div>
       </div>
-
       <p>${session.description || ""}</p>
-
       <div class="session-meta">
         ${session.start} – ${session.end}
         ${session.speaker ? ` · Speaker: ${session.speaker}` : ""}
@@ -329,7 +307,31 @@ function renderSessions() {
   });
 }
 
+// Edit Session
+function editSession(index) {
+  const session = sessions[index];
+  editingIndex = index;
 
+  document.getElementById("sessionTitle").value = session.title;
+  document.getElementById("sessionDescription").value = session.description;
+  document.getElementById("sessionStart").value = session.start;
+  document.getElementById("sessionEnd").value = session.end;
+  document.getElementById("speakerName").value = session.speaker;
+
+  document.querySelector(".modal-header h3").textContent = "Edit Session";
+  saveBtn.textContent = "Update Session";
+
+  openModal();
+}
+
+// Delete Session
+function deleteSession(index) {
+  if (!confirm("Delete this session?")) return;
+  sessions.splice(index, 1);
+  renderSessions();
+}
+
+// Save Session
 saveBtn.addEventListener("click", () => {
   const title = document.getElementById("sessionTitle").value.trim();
   const description = document.getElementById("sessionDescription").value.trim();
@@ -338,7 +340,7 @@ saveBtn.addEventListener("click", () => {
   const speaker = document.getElementById("speakerName").value.trim();
 
   if (!title || !start || !end) {
-    alert("Please fill required fields");
+    alert("Session title and time are required");
     return;
   }
 
@@ -350,22 +352,19 @@ saveBtn.addEventListener("click", () => {
     sessions.push(data);
   }
 
-  editingIndex = null;
-  document.querySelector(".modal-header h3").textContent = "Create Session";
-  saveBtn.textContent = "Save Session";
-
   renderSessions();
   closeModal();
 });
 
+// Bindings
+openBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+cancelBtn.addEventListener("click", closeModal);
 
-  openBtn.addEventListener("click", openModal);
-  closeBtn.addEventListener("click", closeModal);
-  cancelBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
+});
 
-  modal.addEventListener("click", e => {
-    if (e.target === modal) closeModal();
-  });
 </script>
 
 
