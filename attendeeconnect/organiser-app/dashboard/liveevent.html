@@ -18,9 +18,10 @@
 <!-- ================= HEADER ================= -->
 <header class="app-header">
   <div class="left">
-    <button class="icon-btn">
-      <i class="ph ph-arrow-left"></i>
-    </button>
+<a href="/attendeeconnect/organiser-app/dashboard/index.html" class="icon-btn">
+  <i class="ph ph-arrow-left"></i>
+</a>
+
 
     <div class="logo">
       <div class="logo-icon">
@@ -371,6 +372,11 @@
 </section>
 </main>
 
+<script>
+  document.getElementById('backBtn').addEventListener('click', () => {
+    window.history.back();
+  });
+</script>
 <script>
   const newPollBtn = document.querySelector('.new-poll-btn');
   const createPoll = document.getElementById('createPoll');
