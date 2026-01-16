@@ -333,3 +333,11 @@ body {
   max-width: 420px;
 }
 
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
