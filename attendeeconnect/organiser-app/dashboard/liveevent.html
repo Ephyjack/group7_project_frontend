@@ -211,14 +211,179 @@
           Once your event goes live, you'll see real-time engagement metrics here.
         </p>
       </div>
+    </div>  
+  </div>
+<!-- ===== Q&A ===== -->
+<div class="tab-panel" id="qa-panel">
+
+  <div class="qa-header">
+    <div>
+      <h3><i class="ph ph-chat-circle-text"></i> Q&A</h3>
+      <p>3 pending questions</p>
+    </div>
+
+    <button class="sort-btn">
+      <i class="ph ph-sort-descending"></i>
+      Sort by Votes
+    </button>
+  </div>
+
+  <!-- ===== POLL INSIDE Q&A ===== -->
+  <div class="card qa-poll">
+    <!-- ===== CREATE POLL (HIDDEN BY DEFAULT) ===== -->
+<div class="card create-poll hidden" id="createPoll">
+
+  <h4>
+    <i class="ph ph-plus-square"></i>
+    Create Live Poll
+  </h4>
+
+  <label>Poll Question</label>
+  <input type="text" placeholder="Enter your poll question" />
+
+  <label>Options</label>
+
+  <div class="poll-options">
+    <input type="text" placeholder="Option 1" />
+    <input type="text" placeholder="Option 2" />
+    <input type="text" placeholder="Option 3" />
+    <input type="text" placeholder="Option 4" />
+  </div>
+
+  <div class="poll-actions">
+    <button class="secondary">
+      <i class="ph ph-x"></i>
+      Cancel
+    </button>
+
+    <button class="primary">
+      <i class="ph ph-broadcast"></i>
+      Publish Poll
+    </button>
+  </div>
+</div>
+
+    <div class="poll-header">
+  <h4>
+    <i class="ph ph-chart-bar"></i>
+    Live Poll
+    <span class="badge live">Live</span>
+  </h4>
+
+  <button class="new-poll-btn">
+    <i class="ph ph-plus-circle"></i>
+    New Poll
+  </button>
+</div>
+
+
+    <p class="poll-question">
+      Which topic interests you most for the next session?
+    </p>
+
+    <div class="poll-option">
+      <span>AI & Machine Learning</span>
+      <div class="bar"><span style="width:38%"></span></div>
+      <strong>38%</strong>
+    </div>
+
+    <div class="poll-option">
+      <span>Cloud Infrastructure</span>
+      <div class="bar"><span style="width:27%"></span></div>
+      <strong>27%</strong>
+    </div>
+
+    <div class="poll-option">
+      <span>Cybersecurity</span>
+      <div class="bar"><span style="width:23%"></span></div>
+      <strong>23%</strong>
+    </div>
+
+    <div class="poll-option">
+      <span>Web3 & Blockchain</span>
+      <div class="bar"><span style="width:13%"></span></div>
+      <strong>13%</strong>
     </div>
   </div>
 
+  <!-- ===== QUESTIONS ===== -->
+  <div class="qa-list">
+
+    <!-- QUESTION -->
+    <div class="qa-item">
+      <img src="https://i.pravatar.cc/60?img=32">
+
+      <div class="qa-content">
+        <div class="qa-meta">
+          <strong>Sarah Johnson</strong>
+          <span>2 mins ago</span>
+          <span class="status pending">Pending</span>
+        </div>
+
+        <p>Will the presentation slides be shared after the session?</p>
+
+        <div class="qa-actions">
+          <button><i class="ph ph-thumbs-up"></i> 24</button>
+          <button class="primary">
+            <i class="ph ph-check-circle"></i> Mark as Answered
+          </button>
+          <button>
+            <i class="ph ph-archive"></i> Archive
+          </button>
+        </div>
+
+        <!-- REPLY -->
+        <div class="qa-reply">
+          <input type="text" placeholder="Write a reply..." />
+          <button>
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANSWERED QUESTION -->
+    <div class="qa-item answered">
+      <img src="https://i.pravatar.cc/60?img=45">
+
+      <div class="qa-content">
+        <div class="qa-meta">
+          <strong>Michael Chen</strong>
+          <span>5 mins ago</span>
+          <span class="status answered">Answered</span>
+        </div>
+
+        <p>
+          Can you elaborate more on the implementation details of the cloud
+          migration strategy?
+        </p>
+
+        <div class="qa-actions">
+          <button><i class="ph ph-thumbs-up"></i> 18</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 </section>
-
-
 </main>
 
+<script>
+  const newPollBtn = document.querySelector('.new-poll-btn');
+  const createPoll = document.getElementById('createPoll');
+  const cancelPoll = createPoll.querySelector('.secondary');
+
+  newPollBtn.addEventListener('click', () => {
+    createPoll.classList.toggle('hidden');
+  });
+
+  cancelPoll.addEventListener('click', () => {
+    createPoll.classList.add('hidden');
+  });
+</script>
 <script src="/attendeeconnect/organiser-app/assets/js/liveevent.js"></script>
 </body>
 </html>

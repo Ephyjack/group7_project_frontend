@@ -79,5 +79,84 @@
   .hero-image {
     margin-top: 24px;
   }
+}
 
+/* MODAL OVERLAY */
+.role-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* MODAL CONTENT */
+.role-modal-content {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* TITLE */
+.role-modal-content h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* CLOSE BUTTON */
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ROLE BUTTONS */
+.role-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* ROLE CARDS */
+.role-card {
+  flex: 1;
+  padding: 22px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* ORGANIZER */
+.role-card.organizer {
+  background: linear-gradient(135deg, #6a5cff, #8e7bff);
+}
+
+/* ATTENDEE */
+.role-card.attendee {
+  background: linear-gradient(135deg, #00c6ff, #00e6b8);
+}
+
+/* HOVER EFFECT */
+.role-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 }

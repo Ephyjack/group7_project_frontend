@@ -333,11 +333,224 @@ body {
   max-width: 420px;
 }
 
-.tab-panel {
-  display: none;
+/* ================= Q&A ================= */
+
+.qa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.tab-panel.active {
+.qa-header h3 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f6f8;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ---- Poll ---- */
+
+.qa-poll {
+  margin-bottom: 24px;
+}
+
+.poll-question {
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.poll-option {
+  display: grid;
+  grid-template-columns: 1fr 3fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.poll-option .bar {
+  background: #e6e8eb;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.poll-option .bar span {
   display: block;
+  height: 100%;
+  background: #4f46e5;
+}
+
+/* ---- Questions ---- */
+
+.qa-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e6e8eb;
+  margin-bottom: 14px;
+}
+
+.qa-item img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.qa-content {
+  flex: 1;
+}
+
+.qa-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.qa-meta .status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.status.pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status.answered {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.qa-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.qa-actions button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: #f4f6f8;
+  cursor: pointer;
+}
+
+.qa-actions .primary {
+  background: #4f46e5;
+  color: white;
+}
+
+/* ---- Reply ---- */
+
+.qa-reply {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.qa-reply input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.qa-reply button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+}
+
+/* ===== Poll Header ===== */
+
+.poll-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-poll-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== Create Poll ===== */
+
+.create-poll {
+  margin-bottom: 24px;
+}
+
+.create-poll label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+  display: block;
+}
+
+.create-poll input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-top: 6px;
+}
+
+.poll-options {
+  display: grid;
+  gap: 8px;
+}
+
+.poll-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.poll-actions .secondary {
+  background: #f4f6f8;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.poll-actions .primary {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
 }
 

@@ -11,6 +11,8 @@ tabs.forEach((tab, index) => {
     if (index === 0) panels[0].classList.add("active"); // Overview
     if (index === 1) panels[1].classList.add("active"); // Sessions
     if (index === 2) panels[2].classList.add("active"); // Engagement
-    // Q&A will be added later
+    if (index === 3) panels[3].classList.add("active"); // Q&A
   });
 });
+
+
