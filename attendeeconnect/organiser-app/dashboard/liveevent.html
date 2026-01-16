@@ -104,59 +104,67 @@
   </nav>
 
   <!-- ===== OVERVIEW ===== -->
-  <section class="overview-grid">
+<!-- ===== TAB CONTENT ===== -->
+<section class="tab-content">
 
-    <!-- SESSIONS PANEL -->
-    <div class="card">
-      <h3>Event Sessions</h3>
+  <!-- ===== OVERVIEW ===== -->
+  <div class="tab-panel active" id="overview-panel">
+    <section class="overview-grid">
 
-      <div class="session live">
-        <img src="https://i.pravatar.cc/60?img=12">
-        <div class="info">
-          <h4>Keynote: The Future of Cloud Computing</h4>
-          <p>Dr. James Wilson • CTO</p>
-          <span>10:00 AM • Main Hall • 245 watching</span>
+      <!-- SESSIONS PANEL (OVERVIEW VERSION) -->
+      <div class="card">
+        <h3>Event Sessions</h3>
+
+        <div class="session live">
+          <img src="https://i.pravatar.cc/60?img=12">
+          <div class="info">
+            <h4>Keynote: The Future of Cloud Computing</h4>
+            <p>Dr. James Wilson • CTO</p>
+            <span>10:00 AM • Main Hall • 245 watching</span>
+          </div>
+          <span class="status live">Live</span>
         </div>
-        <span class="status live">Live</span>
-      </div>
 
-      <div class="session">
-        <img src="https://i.pravatar.cc/60?img=22">
-        <div class="info">
-          <h4>Building Scalable Microservices</h4>
-          <p>Lisa Anderson • Software Architect</p>
-          <span>11:30 AM • Workshop Room A</span>
-        </div>
-        <span class="status upcoming">Upcoming</span>
-      </div>
-    </div>
-
-    <!-- ENGAGEMENT PANEL -->
-    <div class="card">
-      <h3>Attendee Engagement</h3>
-
-      <div class="chart-placeholder">
-        <i class="ph ph-chart-bar"></i>
-        <p>Live engagement chart</p>
-      </div>
-
-      <div class="engagement-stats">
-        <div>
-          <strong>1,234</strong>
-          <span>Chat Messages</span>
-        </div>
-        <div>
-          <strong>87</strong>
-          <span>Questions Asked</span>
-        </div>
-        <div>
-          <strong>2,456</strong>
-          <span>Reactions</span>
+        <div class="session">
+          <img src="https://i.pravatar.cc/60?img=22">
+          <div class="info">
+            <h4>Building Scalable Microservices</h4>
+            <p>Lisa Anderson • Software Architect</p>
+            <span>11:30 AM • Workshop Room A</span>
+          </div>
+          <span class="status upcoming">Upcoming</span>
         </div>
       </div>
-    </div>
 
-     <!-- ===== SESSIONS ===== -->
+      <!-- ENGAGEMENT PANEL (OVERVIEW VERSION) -->
+      <div class="card">
+        <h3>Attendee Engagement</h3>
+
+        <div class="chart-placeholder">
+          <i class="ph ph-chart-bar"></i>
+          <p>Live engagement chart</p>
+        </div>
+
+        <div class="engagement-stats">
+          <div>
+            <strong>1,234</strong>
+            <span>Chat Messages</span>
+          </div>
+          <div>
+            <strong>87</strong>
+            <span>Questions Asked</span>
+          </div>
+          <div>
+            <strong>2,456</strong>
+            <span>Reactions</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ===== SESSIONS ===== -->
   <div class="tab-panel" id="sessions-panel">
     <div class="card">
       <h3><i class="ph ph-calendar"></i> Live & Upcoming Sessions</h3>
@@ -206,7 +214,8 @@
     </div>
   </div>
 
-  </section>
+</section>
+
 
 </main>
 

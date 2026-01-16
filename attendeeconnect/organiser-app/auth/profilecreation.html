@@ -364,7 +364,7 @@
         <div class="final-icon">✔</div>
         <h2>You are all set!</h2>
         <p>Your profile is ready. Take control of your event experience in one click</p>
-        <button class="btn btn-primary">GO TO HOME</button>
+        <button class="btn btn-primary" id="goHome">GO TO HOME</button>
       </div>
     </section>
 
@@ -375,6 +375,13 @@
       document.getElementById('step-1').classList.remove('active');
       document.getElementById('step-2').classList.add('active');
     }
+
+    /* FINAL REDIRECT */
+document.getElementById('goHome')?.addEventListener('click', () => {
+window.location.href = '/attendeeconnect/organiser-app/dashboard/index.html';
+});
+
+showStep();
   </script>
 
 </body>
