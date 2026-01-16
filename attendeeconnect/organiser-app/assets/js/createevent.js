@@ -1,3 +1,6 @@
+/* ===============================
+   TABS
+================================ */
 const tabButtons = document.querySelectorAll(".tab-btn");
 const tabSections = document.querySelectorAll(".tab-section");
 
@@ -5,19 +8,16 @@ tabButtons.forEach(button => {
   button.addEventListener("click", () => {
     const targetTab = button.dataset.tab;
 
-    // Remove active state from all
     tabButtons.forEach(btn => btn.classList.remove("active"));
     tabSections.forEach(section => section.classList.remove("active"));
 
-    // Activate selected tab
     button.classList.add("active");
     document.getElementById(targetTab).classList.add("active");
   });
 });
 
-
 /* ===============================
-   EVENT STORAGE HELPERS
+   STORAGE HELPERS
 ================================ */
 function getEvents() {
   return JSON.parse(localStorage.getItem("events")) || [];
@@ -28,31 +28,75 @@ function saveEvents(events) {
 }
 
 /* ===============================
-   SAVE EVENT ACTIONS
+   EVENT STATE
 ================================ */
-function saveDraftEvent() {
-  saveEvent("draft");
-}
+let currentEventId = localStorage.getItem("currentEventId");
 
-function publishEvent() {
-  saveEvent("published");
-}
+/* ===============================
+   LOAD EXISTING EVENT (DRAFT)
+================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  if (!currentEventId) return;
 
+  const events = getEvents();
+  const event = events.find(e => e.id === currentEventId);
+  if (!event) return;
+
+  document.getElementById("eventTitle").value = event.title || "";
+  document.getElementById("startDate").value = event.startDate || "";
+  document.getElementById("endDate").value = event.endDate || "";
+
+  sessions = event.sessions || [];
+  renderSessions();
+});
+
+/* ===============================
+   SAVE EVENT (DRAFT / PUBLISHED)
+================================ */
 function saveEvent(status) {
   const events = getEvents();
 
-  const newEvent = {
-    id: Date.now(),
-    title: "Untitled Event", // later replace with form input
-    status: status,
-    startDate: null, // later used for live logic
-    createdAt: new Date().toISOString()
-  };
+  const title = document.getElementById("eventTitle").value.trim();
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
 
-  events.push(newEvent);
+  if (!title) {
+    alert("Event title is required");
+    return;
+  }
+
+  if (status === "published" && sessions.length === 0) {
+    alert("Please create at least one session before publishing.");
+    return;
+  }
+
+  let event;
+
+  if (currentEventId) {
+    event = events.find(e => e.id === currentEventId);
+    if (!event) return;
+
+    event.title = title;
+    event.startDate = startDate;
+    event.endDate = endDate;
+    event.status = status;
+    event.sessions = sessions;
+  } else {
+    event = {
+      id: crypto.randomUUID(),
+      title,
+      startDate,
+      endDate,
+      status,
+      sessions,
+      createdAt: new Date().toISOString()
+    };
+
+    events.push(event);
+    localStorage.setItem("currentEventId", event.id);
+  }
+
   saveEvents(events);
-
-  // Redirect back to dashboard
   window.location.href = "/attendeeconnect/organiser-app/dashboard/index.html";
 }
 
@@ -60,9 +104,11 @@ function saveEvent(status) {
    BUTTON BINDINGS
 ================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  const saveDraftBtn = document.querySelector(".btn.secondary");
-  const publishBtn = document.querySelector(".btn.primary");
+  document
+    .querySelector(".btn.secondary")
+    .addEventListener("click", () => saveEvent("draft"));
 
-  if (saveDraftBtn) saveDraftBtn.addEventListener("click", saveDraftEvent);
-  if (publishBtn) publishBtn.addEventListener("click", publishEvent);
+  document
+    .querySelector(".btn.primary")
+    .addEventListener("click", () => saveEvent("published"));
 });
