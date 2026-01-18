@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Organizer Dashboard | Attendee Connect</title>
   <link rel="stylesheet" href="/attendeeconnect/organiser-app/assets/css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
@@ -15,12 +16,14 @@
       <span>Attendee Connect</span>
     </div>
 
-    <button class="primary-btn">Create New Event</button>
+    <!-- Profile Icon -->
+    <div class="profile-icon" id="profileIcon">
+      <i class="fa-solid fa-user"></i>
+    </div>
   </header>
 
   <!-- MAIN -->
   <main class="dashboard">
-
     <h1 id="dashboard-title">Welcome to Events Corner</h1>
     <p class="subtitle" id="dashboard-subtitle">
       Take full control of your events
@@ -30,8 +33,34 @@
     <section class="event-grid" id="eventGrid">
       <!-- Cards injected by JS -->
     </section>
-
   </main>
+
+  <!-- PROFILE MODAL -->
+  <div class="modal" id="profileModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Edit Profile</h2>
+      <form id="profileForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <button type="submit" class="save-btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DRAFTS MODAL -->
+<div class="modal" id="draftsModal">
+  <div class="modal-content">
+    <span class="close" id="closeDraftsModal">&times;</span>
+    <h2>Draft Events</h2>
+    <ul id="draftsList" style="list-style: none; padding: 0;"></ul>
+  </div>
+</div>
+
 
   <script src="/attendeeconnect/organiser-app/assets/js/index.js"></script>
 </body>
