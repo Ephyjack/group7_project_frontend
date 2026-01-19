@@ -26,3 +26,7 @@ function prevScreen() {
 function goToAuth() {
   window.location.href = "/attendeeconnect/attendee-app/auth/signup&login.html";
 }
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js");
+}
